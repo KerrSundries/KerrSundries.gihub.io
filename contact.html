@@ -1,0 +1,223 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kerr Sundries - Contact Us</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: #EEDB8A;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    header {
+        background-color: #111;
+        padding: 20px 0;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    nav a {
+        color: #EEDB8A;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+        color: #FFF;
+        transform: scale(1.1);
+    }
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+    .logo {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        transition: transform 1s ease-in-out;
+    }
+    .content {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .contact-info {
+        margin-bottom: 30px;
+    }
+    .feedback-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .feedback-form input,
+    .feedback-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #222;
+        border: 1px solid #EEDB8A;
+        color: #EEDB8A;
+    }
+    .feedback-form button {
+        background-color: #EEDB8A;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .feedback-form button:hover {
+        background-color: #FFF;
+    }
+    .chatbot {
+        margin-top: 30px;
+        border: 1px solid #EEDB8A;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .chat-messages {
+        height: 200px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #222;
+        border-radius: 5px;
+    }
+    .chat-input {
+        display: flex;
+    }
+    .chat-input input {
+        flex-grow: 1;
+        padding: 10px;
+        background-color: #222;
+        border: 1px solid #EEDB8A;
+        color: #EEDB8A;
+    }
+    .chat-input button {
+        background-color: #EEDB8A;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .chat-input button:hover {
+        background-color: #FFF;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index">Home</a>
+            <a href="about">About</a>
+            <a href="products">Products</a>
+            <a href="cart">Cart</a>
+            <a href="contact" class="active">Contact</a>
+        </nav>
+    </header>
+    
+    <div class="logo-container">
+        <img src="logosm.png" alt="Kerr Sundries logo: A circular emblem with a black 'K' on a red-orange gradient background, bordered by gold" class="logo">
+    </div>
+
+    <div class="content">
+        <h1>Contact Kerr Sundries</h1>
+        
+        <div class="contact-info">
+            <p>ACN: 679 029 059</p>
+            <p>ABN: 33679029059</p>
+            <p>Phone: 0408 703 048</p>
+            <p>Email: kerrsundries@gmail.com</p>
+        </div>
+
+        <div class="feedback-form">
+            <h2>Send us your feedback</h2>
+            <form id="feedbackForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Feedback</button>
+            </form>
+        </div>
+
+        <div class="chatbot">
+            <h2>Ask Amy</h2>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const feedbackForm = document.getElementById('feedbackForm');
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your feedback! We will get back to you soon.');
+            feedbackForm.reset();
+        });
+
+        // Simple chatbot functionality
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage('You', message);
+                chatInput.value = '';
+                setTimeout(() => botReply(message), 1000);
+            }
+        }
+
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('p');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function botReply(message) {
+            const lowerMessage = message.toLowerCase();
+            let reply = "I'm sorry, I didn't understand that. Can you please rephrase?";
+
+            if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                reply = "Hello! How can I assist you today?";
+            } else if (lowerMessage.includes('product')) {
+                reply = "We offer a wide range of sundries. Is there a specific category you're interested in?";
+            } else if (lowerMessage.includes('contact')) {
+                reply = "You can reach us at 0408 703 048 or email us at kerrsundries@gmail.com.";
+            } else if (lowerMessage.includes('hours')) {
+                reply = "Our business hours are Monday to Thursday, 9AM to 5PM AEST.";
+            }
+
+            addMessage('Bot', reply);
+        }
+
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Initial bot message
+        setTimeout(() => addMessage('Bot', "Hello! How can I help you today?"), 1000);
+    });
+    </script>
+</body>
+</html>

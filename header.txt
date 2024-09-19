@@ -1,0 +1,8 @@
+<html><head><base href="https://drive.google.com/drive/folders/18tqrB4ngih_vzvrfiZl1lcwLL5zKaaS3?usp=sharing">
+
+<base href="https://kerrsundries.com">
+
+<a href="Home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html" class="active">Products</a>
+            <a href="cart.html">Cart</a>
