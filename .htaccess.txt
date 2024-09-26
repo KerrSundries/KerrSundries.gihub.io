@@ -1,1 +1,1 @@
-DirectoryIndex  index.htm lindex.php home.html 
+DirectoryIndex  index.html lindex.php home.html 
