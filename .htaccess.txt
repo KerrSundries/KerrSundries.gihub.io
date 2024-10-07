@@ -1,5 +1,1 @@
-DirectoryIndex  index.html lindex.php home.html <<<<<<< HEAD
 DirectoryIndex  index.html lindex.php home.html 
-=======
-DirectoryIndex  index.html lindex.php home.html 
->>>>>>> 4930af95ef27363b2e8da47fbcef9df6a8d799ea
