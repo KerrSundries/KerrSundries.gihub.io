@@ -1,0 +1,26 @@
+
+<script>
+document.getElementById('greetingCardForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  // Set order date to today if not specified
+  const formData = new FormData(e.target);
+  if (!formData.get('orderDate')) {
+    formData.set('orderDate', new Date().toISOString().split('T')[0]);
+  }
+  
+  const data = Object.fromEntries(formData.entries());
+  
+  try {
+    console.log('Form Data:', data);
+    alert('Card information submitted successfully!');
+    e.target.reset();
+  } catch (error) {
+    console.error('Error:', error);
+    alert('There was an error submitting your information. Please try again.');
+  }
+});
+
+// Set default order date to today
+document.querySelector('input[name="orderDate"]').valueAsDate = new Date();
+</script>
