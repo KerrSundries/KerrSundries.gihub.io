@@ -79,7 +79,7 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 177.77%; /* 16:9 aspect ratio (9/16 * 100) */
+            padding-top: 56.25% ;/* 16:9 aspect ratio (9/16 * 100) */
             background-color: #333; /* Placeholder for video */
             border-radius: 8px;
             overflow: hidden;
@@ -99,28 +99,7 @@
             max-width: 600px;
         }
 
-        .chat-container {
-            flex: 1; /* Takes less space */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #1a1a1a;
-            max-width: 350px; /* Limit width for larger screens */
-            width: 100%; /* Full width on smaller screens */
-            min-height: 400px; /* Ensure chat widget has space */
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-        .chat-container img {
-            width: 120px;
-            height: auto;
-            border-radius: 50%; /* Make avatar circular */
-            border: 3px solid #ffd700;
-            object-fit: cover;
-        }
-        elevenlabs-convai {
+               elevenlabs-convai {
             width: 100%; /* Make the widget take full width of its container */
             height: 300px; /* Adjust height as needed */
             --convai-widget-background-color: #222;
@@ -157,12 +136,30 @@
     <div class="main-content">
         <div class="video-and-text-container">
             <h1>Learn More About Kerr Sundries Subscriptions!</h1>
+		<h2>Watch the video or ask Amy.</h2>
+
             <div class="video-wrapper">
                 <!-- Replace 'YOUR_VIDEO_ID' with your actual 9:16 YouTube video ID -->
 
+
                 <!-- Example: src="https://www.youtube.com/embed/F0R4CD8bi9U?rel=0&amp;controls=0&amp;showinfo=0&amp;modestbranding=1" -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;controls=0&amp;showinfo=0&amp;modestbranding=1" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/F0R4CD8bi9U?rel=0&amp;controls=0&amp;showinfo=0&amp;modestbranding=1" allowfullscreen></iframe>
             </div>
+<div style="padding: 20px;">
+    <a target="_blank" href="Subscribe.html" style="
+    display: inline-block;
+    font-size: 18px;
+    line-height: 48px;
+    height: 48px;
+    color: #111;
+    min-width: 212px;
+    background-color: #ffd700;
+    text-align: center;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
+    border-radius: 6px;
+">Subscribe</a>
+</div>
+
             <p class="info-text">
                 Welcome to Kerr Sundries! We offer an exclusive bulk pricing subscription service designed to give you access to premium products at unbeatable prices. By subscribing, you unlock special rates on a curated selection of items, making it easier and more affordable to stock up on your favorites. Our subscription model ensures you get consistent savings and convenient delivery directly to your door. Dive into a world of quality and value with Kerr Sundries!
             </p>
@@ -171,11 +168,9 @@
             </p>
         </div>
 
-        <div class="chat-container">
-            <h2>Kerr Sundries Assistant</h2>
-            <img src="fairy.png" alt="Fairy Avatar">
-            <elevenlabs-convai agent-id="agent_01k0n39652fc6bjq9nen86m9zh"></elevenlabs-convai>
-        </div>
+        <elevenlabs-convai agent-id="agent_01k0n39652fc6bjq9nen86m9zh"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+	 
+
     </div>
 
     <footer>
